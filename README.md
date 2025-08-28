@@ -12,23 +12,3 @@
 
 ---
 
-## 2. هيكلية المجلدات / Project Structure
-
-```text
-/ (root)
-├── frontend/       ← الواجهة العامة (الزوار)
-├── admin-panel/    ← لوحة الإدارة (إعداد وتعديل الإعلانات)
-├── shared/         ← كود مشترَك (إعادة استخدام)
-└── README.md       ← هذا الملف
-# 1. استنساخ المستودع
-git clone https://github.com/USERNAME/crispychicken-monorepo.git
-cd crispychicken-monorepo
-
-# 2. التثبيت (إن لزم)
-npm install
-
-# 3. تشغيل الواجهة العامة
-cd frontend && npm start
-
-# 4. تشغيل لوحة الإدارة
-cd ../admin-panel && npm start
