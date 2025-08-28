@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin – Crispy Chicken Offers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="assets/logo.svg" />
+</head>
+<body class="bg-zinc-50 text-zinc-900">
+  <header class="sticky top-0 z-10 bg-white/80 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.svg" class="w-8 h-8" alt="Logo">
+        <h1 class="text-xl font-semibold">Admin – Offers Manager</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="px-3 py-1 rounded-xl border">View Site</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <section class="lg:col-span-2">
+        <div class="bg-white rounded-2xl shadow p-4">
+          <h2 class="text-lg font-semibold mb-3">Offer Content</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <input id="title_ar" class="border rounded-xl px-3 py-2" placeholder="Title (Arabic)" />
+            <input id="title_en" class="border rounded-xl px-3 py-2" placeholder="Title (English)" />
+            <textarea id="description_ar" class="border rounded-xl px-3 py-2 md:col-span-2" placeholder="Description (Arabic)"></textarea>
+            <textarea id="description_en" class="border rounded-xl px-3 py-2 md:col-span-2" placeholder="Description (English)"></textarea>
+            <input id="discount_percent" type="number" class="border rounded-xl px-3 py-2" placeholder="Discount % (0-100)" />
+            <input id="min_order_aed" type="number" class="border rounded-xl px-3 py-2" placeholder="Min order (AED)" />
+            <input id="menu_url" class="border rounded-xl px-3 py-2 md:col-span-2" placeholder="Menu URL (https://)" />
+            <div class="grid grid-cols-2 gap-3 md:col-span-2">
+              <input id="start_date" type="date" class="border rounded-xl px-3 py-2" />
+              <input id="end_date" type="date" class="border rounded-xl px-3 py-2" />
+            </div>
+          </div>
+
+          <h3 class="text-md font-semibold mt-4 mb-2">Contacts</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <input id="hotline" class="border rounded-xl px-3 py-2" placeholder="Hotline" />
+            <input id="mobile_display" class="border rounded-xl px-3 py-2" placeholder="Mobile (display)" />
+            <input id="whatsapp" class="border rounded-xl px-3 py-2" placeholder="WhatsApp (E.164 e.g. +971501882206)" />
+            <input id="email" class="border rounded-xl px-3 py-2" placeholder="Email (receives messages)" />
+          </div>
+
+          <h3 class="text-md font-semibold mt-4 mb-2">Social Links</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <input id="facebook" class="border rounded-xl px-3 py-2" placeholder="Facebook" />
+            <input id="instagram" class="border rounded-xl px-3 py-2" placeholder="Instagram" />
+            <input id="tiktok" class="border rounded-xl px-3 py-2" placeholder="TikTok" />
+            <input id="x" class="border rounded-xl px-3 py-2" placeholder="X (Twitter)" />
+          </div>
+
+          <div class="mt-4 flex gap-2 flex-wrap">
+            <button id="btnAdd" class="px-4 py-2 rounded-2xl bg-black text-white">Add / Update Offer</button>
+            <button id="btnDownload" class="px-4 py-2 rounded-2xl border">Download offers.json</button>
+            <button id="btnCopyCurl" class="px-4 py-2 rounded-2xl border">Copy cURL</button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow p-4 mt-6">
+          <h2 class="text-lg font-semibold mb-3">Current Offers</h2>
+          <div id="offersList" class="space-y-3"></div>
+        </div>
+      </section>
+
+      <aside class="lg:col-span-1">
+        <div class="bg-white rounded-2xl shadow p-4">
+          <h3 class="text-md font-semibold mb-2">Upload to GitHub</h3>
+          <div class="space-y-2">
+            <input id="gh_token" class="border rounded-xl px-3 py-2 w-full" placeholder="GitHub Token" />
+            <input id="gh_user" class="border rounded-xl px-3 py-2 w-full" placeholder="GitHub Username/Org" />
+            <input id="gh_repo" class="border rounded-xl px-3 py-2 w-full" placeholder="Repository (e.g., crispychicken-offers)" />
+            <input id="gh_path" class="border rounded-xl px-3 py-2 w-full" placeholder="Path (default: data/offers.json)" value="data/offers.json" />
+            <input id="admin_pwd" class="border rounded-xl px-3 py-2 w-full" placeholder="Admin Password (pwd in JSON)" />
+            <button id="btnUpload" class="w-full px-4 py-2 rounded-2xl bg-black text-white mt-2">Upload offers.json</button>
+            <p class="text-xs text-zinc-500">Token is used client-side only and never stored by this page.</p>
+            <div id="uploadStatus" class="text-sm mt-2"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="scripts/admin.js"></script>
+</body>
+</html>
